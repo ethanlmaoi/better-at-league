@@ -2,9 +2,17 @@
 
 <% var summonerNamePlayer = dataPlayer["name"] %>
 <% var summonerNameOpponent = dataOpponent["name"] %>
-
+<% var accountIdPlayer = dataPlayer["accountId"] %>
+<% var accountIdOpponent = dataOpponent["accountId"] %>
 <% var summonerIdPlayer = dataPlayer["id"] %>
-<h2><%= summonerIdPlayer %></h2>
-
 <% var summonerIdOpponent = dataOpponent["id"] %>
-<h2><%= summonerIdOpponent %></h2>
+
+<h2>Summoner #1 Info</h2>
+<h3>Name: <%= summonerNamePlayer %></h3>
+<h3>Summoner ID: <%= summonerIdPlayer %></h3>
+<h3>Account ID: <%= accountIdPlayer %></h3>
+
+<h2>Summoner #2 Info</h2>
+<h3>Name: <%= summonerNameOpponent %></h3>
+<h3>Summoner ID: <%= summonerIdOpponent %></h3>
+<h3>Account ID: <%= accountIdOpponent %></h3>
