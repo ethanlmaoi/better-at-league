@@ -2,10 +2,21 @@
 
 <% var summonerNamePlayer = dataPlayer["name"] %>
 <% var summonerNameOpponent = dataOpponent["name"] %>
+
 <% var accountIdPlayer = dataPlayer["accountId"] %>
 <% var accountIdOpponent = dataOpponent["accountId"] %>
+
 <% var summonerIdPlayer = dataPlayer["id"] %>
 <% var summonerIdOpponent = dataOpponent["id"] %>
+
+<% var participantIdPlayer = ""; %>
+<% var participantIdOpponent = ""; %>
+<% var participantPlayer; %>
+<% var participantOpponent; %>
+
+
+<% initPlayerParticipantId(); %>
+<% initParticipants(); %>
 
 <h2>Summoner #1 Info</h2>
 <h3>Name: <%= summonerNamePlayer %></h3>
@@ -16,3 +27,71 @@
 <h3>Name: <%= summonerNameOpponent %></h3>
 <h3>Summoner ID: <%= summonerIdOpponent %></h3>
 <h3>Account ID: <%= accountIdOpponent %></h3>
+
+<h2>Match Info</h2>
+<h3>Match ID / Game ID: <%=  %></h3>
+
+<h2>Summoner #1 Stats</h2>
+<h3>Role: <%= participantPlayer["timeline"]["lane"] %></h3>
+<h3>Kills: <%= participantPlayer["stats"]["kills"] %></h3>
+<h3>Deaths: <%= participantPlayer["stats"]["deaths"] %></h3>
+<h3>Assists: <%= participantPlayer["stats"]["assists"] %></h3>
+<h3>Total Gold: <%= participantPlayer["stats"]["goldEarned"] %></h3>
+<h3>Turrets Taken Down: <%= participantPlayer["stats"]["turretKills"] %></h3>
+<h3>Killing Spree: <%= participantPlayer["stats"]["largestKillingSpree"] %></h3>
+<h3>MultiKill: <%= participantPlayer["stats"]["largestMultiKill"] %></h3>
+<h3>Wards Placed: <%= participantPlayer["stats"]["wardsPlaced"] %></h3>
+<h3>Wards Killed: <%= participantPlayer["stats"]["wardswardsKilled"] %></h3>
+<h3>Minions Killed: <%= participantPlayer["stats"]["totalMinionsKilled"] %></h3>
+<h3>Monsters Killed: <%= participantPlayer["stats"]["neutralMinionsKilled"] %></h3>
+<h3>Damage Done: <%= participantPlayer["stats"]["totalDamageDealtToChampions"] %></h3>
+<h3>Time CCing Others: <%= participantPlayer["stats"]["timeCCingOthers"] %></h3>
+<h3>Total Heal: <%= participantPlayer["stats"]["totalHeal"] %></h3>
+<h3>Total Units Healed: <%= participantPlayer["stats"]["totalUnitsHealed"] %></h3>
+<h3>Damage Taken: <%= participantPlayer["stats"]["totalDamageTaken"] %></h3>
+
+<h2>Summoner #2 Stats</h2>
+<h3>Role: <%= participantOpponent["timeline"]["lane"] %></h3>
+<h3>Kills: <%= participantOpponent["stats"]["kills"] %></h3>
+<h3>Deaths: <%= participantOpponent["stats"]["deaths"] %></h3>
+<h3>Assists: <%= participantOpponent["stats"]["assists"] %></h3>
+<h3>Total Gold: <%= participantOpponent["stats"]["goldEarned"] %></h3>
+<h3>Turrets Taken Down: <%= participantOpponent["stats"]["turretKills"] %></h3>
+<h3>Killing Spree: <%= participantOpponent["stats"]["largestKillingSpree"] %></h3>
+<h3>MultiKill: <%= participantOpponent["stats"]["largestMultiKill"] %></h3>
+<h3>Wards Placed: <%= participantOpponent["stats"]["wardsPlaced"] %></h3>
+<h3>Wards Killed: <%= participantOpponent["stats"]["wardswardsKilled"] %></h3>
+<h3>Minions Killed: <%= participantOpponent["stats"]["totalMinionsKilled"] %></h3>
+<h3>Monsters Killed: <%= participantOpponent["stats"]["neutralMinionsKilled"] %></h3>
+<h3>Damage Done: <%= participantOpponent["stats"]["totalDamageDealtToChampions"] %></h3>
+<h3>Time CCing Others: <%= participantOpponent["stats"]["timeCCingOthers"] %></h3>
+<h3>Total Heal: <%= participantOpponent["stats"]["totalHeal"] %></h3>
+<h3>Total Units Healed: <%= participantOpponent["stats"]["totalUnitsHealed"] %></h3>
+<h3>Damage Taken: <%= participantOpponent["stats"]["totalDamageTaken"] %></h3>
+
+    <% function initPlayerParticipantId() { %>
+        <% dataMatch["participantIdentities"].forEach(function(entry) { %>
+            <% if (entry["player"]["summonerName"] === summonerNamePlayer) { %>
+                <% participantIdPlayer = entry["participantId"]; %>
+                <% console.log("matched player to " + participantIdPlayer); %>
+            <% } %>
+            <% if (entry["player"]["summonerName"] === summonerNameOpponent) { %>
+                 <% participantIdOpponent = entry["participantId"]; %>
+                 <% console.log("matched opponent to " + participantIdOpponent); %>
+            <% } %>
+        <% }); %>
+    <% } %>
+
+ <% function initParticipants() { %>
+        <% dataMatch["participants"].forEach(function(entry) { %>
+            <% if (entry["participantId"] === participantIdPlayer) { %>
+                <% participantPlayer = entry; %>
+                <% console.log(participantPlayer); %>
+            <% } %>
+            <% if (entry["participantId"] === participantIdOpponent) { %>
+                <% participantOpponent = entry; %>
+                <% console.log(participantOpponent); %>
+            <% } %>
+        <% }); %>
+    <% } %>
+
