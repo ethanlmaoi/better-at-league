@@ -1,3 +1,37 @@
+<%  // SCORING SHEET reference https://docs.google.com/document/d/1dc0dDUDepQgt7kU4-u3NChoT93JdMNPhctn3Tzz2hzo/edit
+
+    const KILLS = 50
+    const DEATHS = -20;
+    const ASSISTS = 20;
+    const DOUBLE = 100;
+    const TRIPLE = 250;
+    const QUADRA = 500;
+    const PENTA = 2000;
+    const KILLING_SPREE = 25;
+    const FIRST_BLOOD_KILL = 300;
+    const FIRST_BLOOD_ASSIST = 150;
+    
+    const OBJECTIVE_DAMAGE = // divide 10;
+    const TURRET_DAMAGE = // divide 10;
+    const FIRST_TOWER_KILL = 1000;
+    const FIRST_TOWER_ASSIST = 800;
+    const FIRST_INHIB_KILL = 2000;
+    const FIRST_INIHI_ASSIST = 1500;
+    const NEUTRAL_MINIONS = 15;
+    const TOTAL_MINIONS = 10;
+    
+    const CC_TIME_DEALT = 10;
+    const TOTAL_HEAL = .2; // 1.5 multiplier for healer supports
+    const TOTAL_UNITS_HEALED = 50; // 1.5 multiplier for healer supports
+    const TIME_CC_OTHERS = 10;
+    const WARDS_PLACED = 25; // 1.5 multiplier for supports
+    const WARDS_KILLED = 50; // 1.5 multiplier for supports
+    const VISION_SCORE = 10;
+    const DAMAGE_TAKEN = // divide 50; 1.5 multiplier for tanks
+    
+%>
+
+
 <h1>Here are the Results!</h1>
 
 <% var summonerNamePlayer = dataPlayer["name"] %>
@@ -13,7 +47,6 @@
 <% var participantIdOpponent = ""; %>
 <% var participantPlayer; %>
 <% var participantOpponent; %>
-
 
 <% initPlayerParticipantId(); %>
 <% initParticipants(); %>
@@ -32,7 +65,8 @@
 <h3>Match ID / Game ID: <%=  %></h3>
 
 <h2>Summoner #1 Stats</h2>
-<h3>Role: <%= participantPlayer["timeline"]["lane"] %></h3>
+<h3>Role: <%= participantPlayer["timeline"]["role"] %></h3>
+<h3>Lane: <%= participantPlayer["timeline"]["lane"] %></h3>
 <h3>Kills: <%= participantPlayer["stats"]["kills"] %></h3>
 <h3>Deaths: <%= participantPlayer["stats"]["deaths"] %></h3>
 <h3>Assists: <%= participantPlayer["stats"]["assists"] %></h3>
@@ -41,7 +75,7 @@
 <h3>Killing Spree: <%= participantPlayer["stats"]["largestKillingSpree"] %></h3>
 <h3>MultiKill: <%= participantPlayer["stats"]["largestMultiKill"] %></h3>
 <h3>Wards Placed: <%= participantPlayer["stats"]["wardsPlaced"] %></h3>
-<h3>Wards Killed: <%= participantPlayer["stats"]["wardswardsKilled"] %></h3>
+<h3>Wards Killed: <%= participantPlayer["stats"]["wardsKilled"] %></h3>
 <h3>Minions Killed: <%= participantPlayer["stats"]["totalMinionsKilled"] %></h3>
 <h3>Monsters Killed: <%= participantPlayer["stats"]["neutralMinionsKilled"] %></h3>
 <h3>Damage Done: <%= participantPlayer["stats"]["totalDamageDealtToChampions"] %></h3>
@@ -52,6 +86,7 @@
 
 <h2>Summoner #2 Stats</h2>
 <h3>Role: <%= participantOpponent["timeline"]["lane"] %></h3>
+<h3>Lane: <%= participantOpponent["timeline"]["lane"] %></h3>
 <h3>Kills: <%= participantOpponent["stats"]["kills"] %></h3>
 <h3>Deaths: <%= participantOpponent["stats"]["deaths"] %></h3>
 <h3>Assists: <%= participantOpponent["stats"]["assists"] %></h3>
