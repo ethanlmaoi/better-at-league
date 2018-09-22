@@ -1,0 +1,40 @@
+#background {
+	background-color: #404040;
+	margin-top: 10%;
+}
+
+.whiteColor {
+	color: #F6F6E8;
+	font-family: 'Tajawal', sans-serif;
+}
+
+#title {
+	text-align: center;
+	font-size: 500%
+}
+
+#prompt {
+	text-align: center;
+	font-size: 200%;
+}
+
+#submitOne {
+	padding-top: 30px;
+	text-align: center;
+}
+
+#submitTwo {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#submitBtn {
+	padding-top: 20px;
+	text-align: center;
+}
+
+#description {
+	font-size: 200%;
+	padding-top: 35px;
+	text-align: center;
+}

@@ -8,6 +8,8 @@ var dataMatchList = "";
 var dataMatch = "";
 var matchID = "";
 
+app.use(express.static("public"));
+
 app.get("/search", function(req, res) {
    res.render("search"); 
 });

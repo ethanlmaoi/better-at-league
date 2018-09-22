@@ -58,51 +58,51 @@
 <% initParticipants(); %>
 <% initPlayerScores(); %>
 
-<h2>Summoner #1 Info</h2>
-<h3>Name: <%= summonerNamePlayer %></h3>
-<h3>Summoner ID: <%= summonerIdPlayer %></h3>
-<h3>Account ID: <%= accountIdPlayer %></h3>
+<!--<h2>Summoner #1 Info</h2>-->
+<!--<h3>Name: <%= summonerNamePlayer %></h3>-->
+<!--<h3>Summoner ID: <%= summonerIdPlayer %></h3>-->
+<!--<h3>Account ID: <%= accountIdPlayer %></h3>-->
 
-<h2>Summoner #2 Info</h2>
-<h3>Name: <%= summonerNameOpponent %></h3>
-<h3>Summoner ID: <%= summonerIdOpponent %></h3>
-<h3>Account ID: <%= accountIdOpponent %></h3>
+<!--<h2>Summoner #2 Info</h2>-->
+<!--<h3>Name: <%= summonerNameOpponent %></h3>-->
+<!--<h3>Summoner ID: <%= summonerIdOpponent %></h3>-->
+<!--<h3>Account ID: <%= accountIdOpponent %></h3>-->
 
-<h2>Match Info</h2>
-<h3>Match ID / Game ID: <%=  %></h3>
+<!--<h2>Match Info</h2>-->
+<!--<h3>Match ID / Game ID: <%=  %></h3>-->
 
-<h2>Summoner #1 Stats/Scores</h2>
-<h3>Role: <%= participantPlayer["stats"]["role"] %></h3>
-<h3>Lane: <%= participantPlayer["stats"]["lane"] %></h3>
-<h3>Kills: <%= kills %></h3>
-<h3>Deaths: <%= deaths %></h3>
-<h3>Assists: <%= assists %></h3>
-<h3>Double Kills: <%= double %></h3>
-<h3>Triple Kills: <%= triple %></h3>
-<h3>Quadra Kills: <%= quadra %></h3>
-<h3>Penta Kills: <%= penta %></h3>
-<h3>Largest Killing Spree: <%= killing_spree %></h3>
-<h3>Total Heal: <%= total_heal %></h3>
+<!--<h2>Summoner #1 Stats/Scores</h2>-->
+<!--<h3>Role: <%= participantPlayer["stats"]["role"] %></h3>-->
+<!--<h3>Lane: <%= participantPlayer["stats"]["lane"] %></h3>-->
+<!--<h3>Kills: <%= kills %></h3>-->
+<!--<h3>Deaths: <%= deaths %></h3>-->
+<!--<h3>Assists: <%= assists %></h3>-->
+<!--<h3>Double Kills: <%= double %></h3>-->
+<!--<h3>Triple Kills: <%= triple %></h3>-->
+<!--<h3>Quadra Kills: <%= quadra %></h3>-->
+<!--<h3>Penta Kills: <%= penta %></h3>-->
+<!--<h3>Largest Killing Spree: <%= killing_spree %></h3>-->
+<!--<h3>Total Heal: <%= total_heal %></h3>-->
+<!--<h3>First Blood Kill: <%= first_blood_kill %></h3>-->
+<!--<h3>First Blood Assist: <%= first_blood_assist %></h3>-->
 
+<!--<h3>Damage Dealt To Objectives: <%= objective_damage %></h3>-->
+<!--<h3>Damage Dealt To Turrets: <%= turret_damage %></h3>-->
+<!--<h3>First Tower Kill: <%= first_tower_kill %></h3>-->
+<!--<h3>First Tower Assists: <%= first_tower_assist %></h3>-->
+<!--<h3>First Inhibitor Kill: <%= first_inhib_kill %></h3>-->
+<!--<h3>First Inhibitor Assist: <%= first_inhib_assist %></h3>-->
 
+<!--<h3>Neutral Minions Killed: <%= neutral_minions %></h3>-->
+<!--<h3>Total Minions Killed: <%= total_minions %></h3>-->
 
-
-<h3>Damage Dealt To Objectives: <%= objective_damage %></h3>
-<h3>Damage Dealt To Turrets: <%= turret_damage %></h3>
-
-
-
-
-<h3>Neutral Minions Killed: <%= neutral_minions %></h3>
-<h3>Total Minions Killed: <%= total_minions %></h3>
-
-<h3>Total CC Dealt: <%= cc_time_dealt %></h3>
-<h3>Total Units Healed: <%= total_units_healed %></h3>
-<h3>Time CCing Others: <%= cc_time_dealt %></h3>
-<h3>Wards Placed: <%= wards_placed %></h3>
-<h3>Wards Killed: <%= wards_killed %></h3>
-<h3>Vision Score: <%= vision_score %></h3>
-<h3>Total Damage Taken: <%= damage_taken %></h3>
+<!--<h3>Total CC Dealt: <%= cc_time_dealt %></h3>-->
+<!--<h3>Total Units Healed: <%= total_units_healed %></h3>-->
+<!--<h3>Time CCing Others: <%= cc_time_dealt %></h3>-->
+<!--<h3>Wards Placed: <%= wards_placed %></h3>-->
+<!--<h3>Wards Killed: <%= wards_killed %></h3>-->
+<!--<h3>Vision Score: <%= vision_score %></h3>-->
+<!--<h3>Total Damage Taken: <%= damage_taken %></h3>-->
 
 <h3>Star Score: <%= starScore %></h3>
 <h3>Objective Score: <%= objectiveScore %></h3>
@@ -143,15 +143,15 @@
         quadra = Number(participantPlayer["stats"]["quadraKills"])*QUADRA;
         penta = Number(participantPlayer["stats"]["pentaKills"])*PENTA;
         killing_spree = Number(participantPlayer["stats"]["largestKillingSpree"])*KILLING_SPREE;
-        //first_blood_kill = Number(participantPlayer["stats"]["firstBloodKill"])*FIRST_BLOOD_KILL;
-        //first_blood_assist = Number(participantPlayer["stats"]["firstBloodAssist"])*FIRST_BLOOD_ASSIST;
+        first_blood_kill = initFirsts(participantPlayer["stats"]["firstBloodKill"])*FIRST_BLOOD_KILL;
+        first_blood_assist = initFirsts(participantPlayer["stats"]["firstBloodAssist"])*FIRST_BLOOD_ASSIST;
         
         objective_damage = Number(participantPlayer["stats"]["damageDealtToObjectives"])/OBJECTIVE_DAMAGE;
         turret_damage = Number(participantPlayer["stats"]["damageDealtToTurrets"])/TURRET_DAMAGE;
-        //first_tower_kill = Number(participantPlayer["stats"]["firstTowerKill"])*FIRST_TOWER_KILL;
-        //first_tower_assist = Number(participantPlayer["stats"]["firstBloodAssist"])*FIRST_TOWER_ASSIST;
-        //first_inhib_kill = Number(participantPlayer["stats"]["firstInhibitorKill"])*FIRST_INHIB_KILL;
-        //first_inhib_assist = Number(participantPlayer["stats"]["firstInhibitorAssist"])*FIRST_TOWER_ASSIST;
+        first_tower_kill = initFirsts(participantPlayer["stats"]["firstTowerKill"])*FIRST_TOWER_KILL;
+        first_tower_assist = initFirsts(participantPlayer["stats"]["firstTowerAssist"])*FIRST_TOWER_ASSIST;
+        first_inhib_kill = initFirsts(participantPlayer["stats"]["firstInhibitorKill"])*FIRST_INHIB_KILL;
+        first_inhib_assist = initFirsts(participantPlayer["stats"]["firstInhibitorAssist"])*FIRST_INHIB_ASSIST;
         neutral_minions = Number(participantPlayer["stats"]["neutralMinionsKilled"])*NEUTRAL_MINIONS;
         total_minions = Number(participantPlayer["stats"]["totalMinionsKilled"])*TOTAL_MINIONS;
        
@@ -168,5 +168,16 @@
         teamScore = Math.round(cc_time_dealt + total_units_healed + cc_time_dealt + 
                     wards_placed + wards_killed + vision_score + damage_taken);
         objectiveScore = Math.round(objective_damage + turret_damage + neutral_minions + total_minions);
+ } %>
+ 
+ <% function initFirsts(entry) {
+        if (entry === true)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
  } %>
 
