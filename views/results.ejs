@@ -12,29 +12,30 @@
     const FIRST_BLOOD_KILL = 300;
     const FIRST_BLOOD_ASSIST = 150;
     
-    const OBJECTIVE_DAMAGE = 10; // divide 10; 
+    const OBJECTIVE_DAMAGE = 25; // divide 25  hard to calculate; 
     const TURRET_DAMAGE = 10; // divide 10; 
-    const FIRST_TOWER_KILL = 1000; 
-    const FIRST_TOWER_ASSIST = 800; 
-    const FIRST_INHIB_KILL = 2000; 
-    const FIRST_INHIB_ASSIST = 1500; 
-    const NEUTRAL_MINIONS = 15;
-    const TOTAL_MINIONS = 10; 
+    const FIRST_TOWER_KILL = 50; 
+    const FIRST_TOWER_ASSIST = 50; 
+    const FIRST_INHIB_KILL = 100; 
+    const FIRST_INHIB_ASSIST = 100; 
+    const NEUTRAL_MINIONS = 5;
+    const TOTAL_MINIONS = 2; 
   
-    const CC_TIME_DEALT = 10; 
+    const CC_TIME_DEALT = 0.25; 
     const TOTAL_HEAL = 20; // divide by 20; 1.5 multiplier for healer supports 
     const TOTAL_UNITS_HEALED = 50; // 1.5 multiplier for healer supports 
-    const TIME_CC_OTHERS = 10; 
+    const TIME_CC_OTHERS = 0.25; 
     const WARDS_PLACED = 25; // 1.5 multiplier for supports 
     const WARDS_KILLED = 50; // 1.5 multiplier for supports 
     const VISION_SCORE = 10; 
-    const DAMAGE_TAKEN = 50; // divide 50; 1.5 multiplier for tanks
+    const DAMAGE_TAKEN = 100; // divide 50; 1.5 multiplier for tanks
     
     var kills, deaths, assists, double, triple, quadra, penta, killing_spree, first_blood_kill,
         first_blood_assist, objective_damage, turret_damage, first_tower_kill, first_tower_assist,
         first_inhib_kill, first_inhib_assist, neutral_minions, total_minions, cc_time_dealt,
         total_heal, total_units_healed, time_cc_others, wards_placed, wards_killed, vision_score, damage_taken;
     
+    var starScore, teamScore, objectiveScore = 0;
 %>
 
 <h1>Here are the Results!</h1>
@@ -81,6 +82,7 @@
 <h3>Quadra Kills: <%= quadra %></h3>
 <h3>Penta Kills: <%= penta %></h3>
 <h3>Largest Killing Spree: <%= killing_spree %></h3>
+<h3>Total Heal: <%= total_heal %></h3>
 
 
 
@@ -95,13 +97,16 @@
 <h3>Total Minions Killed: <%= total_minions %></h3>
 
 <h3>Total CC Dealt: <%= cc_time_dealt %></h3>
-<h3>Total Heal: <%= total_heal %></h3>
 <h3>Total Units Healed: <%= total_units_healed %></h3>
 <h3>Time CCing Others: <%= cc_time_dealt %></h3>
 <h3>Wards Placed: <%= wards_placed %></h3>
 <h3>Wards Killed: <%= wards_killed %></h3>
 <h3>Vision Score: <%= vision_score %></h3>
 <h3>Total Damage Taken: <%= damage_taken %></h3>
+
+<h3>Star Score: <%= starScore %></h3>
+<h3>Objective Score: <%= objectiveScore %></h3>
+<h3>Team Score: <%= teamScore %></h3>
 
     <% function initPlayerParticipantId() { %>
         <% dataMatch["participantIdentities"].forEach(function(entry) { %>
@@ -158,5 +163,10 @@
         wards_killed = Number(participantPlayer["stats"]["wardsKilled"])*WARDS_KILLED;
         vision_score = Number(participantPlayer["stats"]["visionScore"])*VISION_SCORE;
         damage_taken = Number(participantPlayer["stats"]["totalDamageTaken"])/DAMAGE_TAKEN;
+        
+        starScore = Math.round(kills + deaths + assists + double + triple + quadra + penta + killing_spree + total_heal);
+        teamScore = Math.round(cc_time_dealt + total_units_healed + cc_time_dealt + 
+                    wards_placed + wards_killed + vision_score + damage_taken);
+        objectiveScore = Math.round(objective_damage + turret_damage + neutral_minions + total_minions);
  } %>
 

@@ -51,7 +51,7 @@ app.get("/results", function(req, res) {
        }
     });
     
-    var delayInMilliseconds = 5000; // renders all of the data
+    var delayInMilliseconds = 3000; // renders all of the data
     
     // renders results page with all data
     setTimeout(function() {
