@@ -1,4 +1,13 @@
-
+<!doctype html>
+<html>
+<head>
+	<title>Results Page</title>
+	<link rel="stylesheet" type="text/css" href="results.css">
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
 
 <% 
     const KILLS = 50;
@@ -58,51 +67,51 @@
 <% initParticipants(); %>
 <% initPlayerScores(); %>
 
-<!--<h2>Summoner #1 Info</h2>-->
-<!--<h3>Name: <%= summonerNamePlayer %></h3>-->
-<!--<h3>Summoner ID: <%= summonerIdPlayer %></h3>-->
-<!--<h3>Account ID: <%= accountIdPlayer %></h3>-->
+<h2>Summoner #1 Info</h2>
+<h3>Name: <%= summonerNamePlayer %></h3>
+<h3>Summoner ID: <%= summonerIdPlayer %></h3>
+<h3>Account ID: <%= accountIdPlayer %></h3>
 
-<!--<h2>Summoner #2 Info</h2>-->
-<!--<h3>Name: <%= summonerNameOpponent %></h3>-->
-<!--<h3>Summoner ID: <%= summonerIdOpponent %></h3>-->
-<!--<h3>Account ID: <%= accountIdOpponent %></h3>-->
+<h2>Summoner #2 Info</h2>
+<h3>Name: <%= summonerNameOpponent %></h3>
+<h3>Summoner ID: <%= summonerIdOpponent %></h3>
+<h3>Account ID: <%= accountIdOpponent %></h3>
 
-<!--<h2>Match Info</h2>-->
-<!--<h3>Match ID / Game ID: <%=  %></h3>-->
+<h2>Match Info</h2>
+<h3>Match ID / Game ID: <%=  %></h3>
 
-<!--<h2>Summoner #1 Stats/Scores</h2>-->
-<!--<h3>Role: <%= participantPlayer["stats"]["role"] %></h3>-->
-<!--<h3>Lane: <%= participantPlayer["stats"]["lane"] %></h3>-->
-<!--<h3>Kills: <%= kills %></h3>-->
-<!--<h3>Deaths: <%= deaths %></h3>-->
-<!--<h3>Assists: <%= assists %></h3>-->
-<!--<h3>Double Kills: <%= double %></h3>-->
-<!--<h3>Triple Kills: <%= triple %></h3>-->
-<!--<h3>Quadra Kills: <%= quadra %></h3>-->
-<!--<h3>Penta Kills: <%= penta %></h3>-->
-<!--<h3>Largest Killing Spree: <%= killing_spree %></h3>-->
-<!--<h3>Total Heal: <%= total_heal %></h3>-->
-<!--<h3>First Blood Kill: <%= first_blood_kill %></h3>-->
-<!--<h3>First Blood Assist: <%= first_blood_assist %></h3>-->
+<h2>Summoner #1 Stats/Scores</h2>
+<h3>Role: <%= participantPlayer["stats"]["role"] %></h3>
+<h3>Lane: <%= participantPlayer["stats"]["lane"] %></h3>
+<h3>Kills: <%= kills %></h3>
+<h3>Deaths: <%= deaths %></h3>
+<h3>Assists: <%= assists %></h3>
+<h3>Double Kills: <%= double %></h3>
+<h3>Triple Kills: <%= triple %></h3>
+<h3>Quadra Kills: <%= quadra %></h3>
+<h3>Penta Kills: <%= penta %></h3>
+<h3>Largest Killing Spree: <%= killing_spree %></h3>
+<h3>Total Heal: <%= total_heal %></h3>
+<h3>First Blood Kill: <%= first_blood_kill %></h3>
+<h3>First Blood Assist: <%= first_blood_assist %></h3>
 
-<!--<h3>Damage Dealt To Objectives: <%= objective_damage %></h3>-->
-<!--<h3>Damage Dealt To Turrets: <%= turret_damage %></h3>-->
-<!--<h3>First Tower Kill: <%= first_tower_kill %></h3>-->
-<!--<h3>First Tower Assists: <%= first_tower_assist %></h3>-->
-<!--<h3>First Inhibitor Kill: <%= first_inhib_kill %></h3>-->
-<!--<h3>First Inhibitor Assist: <%= first_inhib_assist %></h3>-->
+<h3>Damage Dealt To Objectives: <%= objective_damage %></h3>
+<h3>Damage Dealt To Turrets: <%= turret_damage %></h3>
+<h3>First Tower Kill: <%= first_tower_kill %></h3>
+<h3>First Tower Assists: <%= first_tower_assist %></h3>
+<h3>First Inhibitor Kill: <%= first_inhib_kill %></h3>
+<h3>First Inhibitor Assist: <%= first_inhib_assist %></h3>
 
-<!--<h3>Neutral Minions Killed: <%= neutral_minions %></h3>-->
-<!--<h3>Total Minions Killed: <%= total_minions %></h3>-->
+<h3>Neutral Minions Killed: <%= neutral_minions %></h3>
+<h3>Total Minions Killed: <%= total_minions %></h3>
 
-<!--<h3>Total CC Dealt: <%= cc_time_dealt %></h3>-->
-<!--<h3>Total Units Healed: <%= total_units_healed %></h3>-->
-<!--<h3>Time CCing Others: <%= cc_time_dealt %></h3>-->
-<!--<h3>Wards Placed: <%= wards_placed %></h3>-->
-<!--<h3>Wards Killed: <%= wards_killed %></h3>-->
-<!--<h3>Vision Score: <%= vision_score %></h3>-->
-<!--<h3>Total Damage Taken: <%= damage_taken %></h3>-->
+<h3>Total CC Dealt: <%= cc_time_dealt %></h3>
+<h3>Total Units Healed: <%= total_units_healed %></h3>
+<h3>Time CCing Others: <%= cc_time_dealt %></h3>
+<h3>Wards Placed: <%= wards_placed %></h3>
+<h3>Wards Killed: <%= wards_killed %></h3>
+<h3>Vision Score: <%= vision_score %></h3>
+<h3>Total Damage Taken: <%= damage_taken %></h3>
 
 <h3>Star Score: <%= starScore %></h3>
 <h3>Objective Score: <%= objectiveScore %></h3>
